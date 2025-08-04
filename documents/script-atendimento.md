@@ -1,0 +1,112 @@
+# Script de Atendimento
+
+## 1. Boas Vindas e Triagem
+### a. Fluxo de Início
+- **Mensagem**: "Bom dia."  
+  → **Resposta**: "Bem vindo à Algo Mais Camisarial! Em que posso ajudar?"
+
+- **Mensagem**: "Olá, vim pelo site, tenho interesse em adquirir os produtos da Algo Mais"  
+  → **Resposta**: "Bem vindo à Algo Mais Camisarial! Que tipo de produto você está procurando?"
+
+## 2. Dúvidas Frequentes
+### a. Produtos Oferecidos
+- **Mensagem**: "Quais produtos vocês fazem?"  
+  → **Resposta**: "Trabalhamos com:  
+  - Camisetas (Gola O, V, Polo, Raglan, Regata)  
+  - Camisas sociais  
+  - Shorts e calças  
+  - Jalecos  
+  - Bonés  
+  - Ecobags  
+  - Crachás  
+  - Bandeiras  
+  - Enxoval hospitalar  
+  - Fardamentos  
+  Posso te ajudar a escolher o modelo ideal?"
+
+### b. Personalização
+- **Mensagem**: "Vocês fazem uniformes personalizados?"  
+  → **Resposta**: "Sim! Produzimos fardamentos personalizados para:  
+  - Empresas  
+  - Cozinhas/restaurantes  
+  - EPI's  
+  Você já tem a arte pronta ou precisa de ajuda para criar?"
+
+### c. Pedido Mínimo
+- **Mensagem**: "Qual o pedido mínimo?"  
+  → **Resposta**: "Depende do tipo de impressão:  
+  | Técnica      | Mínimo |  
+  |--------------|--------|  
+  | Sublimação   | 5 peças |  
+  | Silk         | 20 peças |  
+  | Polo         | 5-10 peças (varia com malha) |  
+  Quer que eu veja qual se encaixa no seu pedido?"
+
+### d. Tipos de Tecido
+- **Mensagem**: "Quais tipos de tecido vocês têm?"  
+  → **Resposta**: "Opções de malhas:  
+  - PP  
+  - Dry Tech  
+  - Cacharrel  
+  - Active Ice  
+  - Fio 30  
+  - PV  
+  Me diga o tipo de peça que você quer e te indico a melhor malha."
+
+### e. Criação de Arte
+- **Mensagem**: "Vocês fazem a arte da estampa?"  
+  → **Resposta**: "Sim! Caso não tenha arte vetorizada:  
+  - Criação: R$60 (primeira hora)  
+  - Adicionais: R$10/10 minutos  
+  - 95% das artes finalizadas em ≤1h  
+  Quer que eu explique o processo?"
+
+### f. Prazos
+- **Mensagem**: "Qual o prazo de entrega?"  
+  → **Resposta**: "Padrão: 8-10 dias úteis. Posso verificar a previsão exata para seu pedido?"
+
+### g. Entrega
+- **Mensagem**: "Vocês entregam ou preciso retirar?"  
+  → **Resposta**: "Opções:  
+  1. Retirada na loja  
+  2. Entrega por motoboy/táxi (Aracaju/SE)  
+  Custo do frete: por conta do cliente. Quer estimativa de valor?"
+
+## 3. Cadastro
+### a. Dados Necessários
+- **Mensagem**: "Para darmos sequência, preciso confirmar:  
+  - Nome Completo  
+  - Telefone  
+  - Nome da Empresa (se houver)  
+  - CPF/CNPJ  
+  Tudo certo? 😊"
+
+## 4. Orçamentos
+### a. Solicitação
+- **Mensagem**: "Me informe:  
+  - Tipo de peça (camisa, jaleco, etc.)  
+  - Quantidade  
+  - Tipo de impressão (sublimação, silk)  
+  - Se já tem arte pronta  
+  Com essas informações, te passo o orçamento!"
+
+## 5. Pagamento
+### a. Opções
+- **Mensagem**: "Formas de pagamento:  
+  - PIX  
+  - Boleto  
+  - Cartão (+5%)  
+  - Dinheiro  
+  Adiantamento mínimo: 50% do valor. Posso te passar a chave PIX?"
+
+## 6. Acompanhamento
+### a. Atualização
+- **Mensagem**: "Seu pedido está em produção. Te avisaremos quando pronto para retirada/entrega."
+
+## 7. Follow-up
+### a. Comunicação
+- **Mensagem**: "Oi! Seu pedido segue em produção. Previsão: [data prevista]. Qualquer novidade, te informo!"
+
+## 8. Reclamações
+### a. Tratamento
+- **Mensagem**: "Sinto muito pelo transtorno. Me explique o ocorrido para resolvermos rápido."
