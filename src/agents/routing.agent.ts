@@ -1,7 +1,7 @@
 import { AgentExecutor, createOpenAIFunctionsAgent } from "langchain/agents";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { tools } from '../tools/index.tools'
-import { llm } from '../llm/phi3'
+import { llm } from '../llm/mistral'
 
 export async function createAgent(){
 

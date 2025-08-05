@@ -1,8 +1,8 @@
-// src/llm/phi3.ts
+// src/llm/mistral.ts
 import { ChatOllama } from "@langchain/ollama";
 
 export const llm = new ChatOllama({
   baseUrl: "http://localhost:11434",
-  model: "phi3.5:latest",
+  model: "mistral",
   temperature: 0.7,
 });

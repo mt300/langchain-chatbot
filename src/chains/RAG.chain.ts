@@ -2,7 +2,7 @@ import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { createRetrievalChain } from "langchain/chains/retrieval";
 import { vectorStore } from "../vector/vectorStore";
-import { llm } from '../llm/phi3'
+import { llm } from '../llm/mistral'
 
 
 let ragChainInstance: any = null;
