@@ -1,50 +1,63 @@
-import { tool } from "@langchain/core/tools";
-import { getRAGChain } from '../chains/RAG.chain'
+import { z } from "zod";
+import { DynamicStructuredTool } from "@langchain/core/tools";
+import { getRAGChain } from "../chains/RAG.chain";
 
 export const tools = [
-  {
+  new DynamicStructuredTool({
     name: "GenerateQuoteTool",
     description: "Gera um orçamento com base nos dados do cliente",
-    func: async (input: string) => {
-      // lógica de cálculo de orçamento
-      console.log('Input', input);
-      const valor = 10
+    schema: z.object({
+      input: z.string().describe("Dados do cliente para gerar orçamento")
+    }),
+    func: async ({ input }) => {
+      console.log("Input", input);
+      const valor = 10;
       return `Orçamento gerado: R$ ${valor}`;
     }
-  },
-  {
+  }),
+
+  new DynamicStructuredTool({
     name: "RegisterClientTool",
     description: "Faz o cadastro do cliente no sistema",
-    func: async (input: string) => {
-      // lógica de cadastro
-      console.log('input', input)
+    schema: z.object({
+      input: z.string().describe("Dados do cliente para cadastro")
+    }),
+    func: async ({ input }) => {
+      console.log("Input", input);
       return "Cadastro realizado com sucesso!";
     }
-  },
-  {
+  }),
+
+  new DynamicStructuredTool({
     name: "CheckOrderStatusTool",
     description: "Verifica o status de um pedido",
-    func: async (input: {id:number}) => {
-      // lógica de status
-      return `Pedido #${input.id} está em produção.`;
+    schema: z.object({
+      id: z.number().describe("ID do pedido")
+    }),
+    func: async ({ id }) => {
+      return `Pedido #${id} está em produção.`;
     }
-  },
-  tool(async () => {
-      return "Encaminhei sua solicitação para um de nossos atendentes.";
-    },
-    {
+  }),
+
+  new DynamicStructuredTool({
     name: "SendToHumanTool",
     description: "Escala o atendimento para um atendente humano",
-  
+    schema: z.object({}),
+    func: async () => {
+      return "Encaminhei sua solicitação para um de nossos atendentes.";
+    }
   }),
-  tool(async (input:string) => {
+
+  new DynamicStructuredTool({
+    name: "RAGTool",
+    description: "Busca informações no banco de dados da empresa",
+    schema: z.object({
+      input: z.string().describe("Consulta a ser feita no banco de dados")
+    }),
+    func: async ({ input }) => {
       const ragChainInstance = await getRAGChain();
       const response = await ragChainInstance.call({ query: input });
       return response.text;
-    },
-    {
-    name: "RAGFAQTool",
-    description: "Busca informações no banco de conhecimento da empresa.",
-  
+    }
   })
 ];

@@ -1,15 +1,27 @@
 //server.ts
-
-import { initVectorStore, queryVectorStore } from './vector/vectorStore'
+import { createAgent } from './agents/routing.agent';
+import { initVectorStore } from './vector/vectorStore'
+import { HumanMessage, AIMessage } from '@langchain/core/messages';
 // import { adderTool } from './tools/calculatePrice';
 
 async function main() {
     try {
         await initVectorStore();
-        const response = await queryVectorStore("Quanto custa 20 camisas?", 4);
-        console.log("Query Response:", response);
-        // const result = await adderTool.invoke({ a: 1, b: 2 });
-        // console.log("Adder Tool Response:", result);
+        const agent = await createAgent();
+        const result = await agent.invoke({
+          input: "Que produtos voces vendem?",
+        });
+
+        // With chat history
+        const result2 = await agent.invoke({
+            input: "Quanto custa 4 camisas com logo da minha empresa?",
+            chat_history: [
+                new HumanMessage("Olá, tudo bem?"),
+                new AIMessage("Bem vindo a Algo Mais, em que posso ajudar?"),
+            ],
+        });
+        console.log('Result 1', result);
+        console.log('Result 2', result2);
     } catch (error) {
         console.error("Error initializing vector store:", error);
     }
