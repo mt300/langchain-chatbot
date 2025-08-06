@@ -1,6 +1,6 @@
 // src/vector/vectorStore.ts
 import { Chroma } from "@langchain/community/vectorstores/chroma";
-import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
+// import {  MarkdownHeaderTextSplitter } from "langchain/text_splitter";
 import { HuggingFaceTransformersEmbeddings } from "@langchain/community/embeddings/huggingface_transformers";
 import { DirectoryLoader } from "langchain/document_loaders/fs/directory";
 import { Document } from "langchain/document";
@@ -22,6 +22,61 @@ export const vectorStore = new Chroma(embeddings, {
   },
   collectionName: "a-test-collection-v2",
 });
+
+export async function markdownHeaderSplitter(rawDocs: Document[], chunkSize = 1000, chunkOverlap = 100) {
+  const newDocs: Document[] = [];
+
+  for (const doc of rawDocs) {
+    const lines = doc.pageContent.split('\n');
+    let currentHeader = '';
+    let currentChunk = '';
+
+    const flushChunk = () => {
+      if (currentChunk.trim() === '') return;
+      newDocs.push(new Document({
+        pageContent: currentHeader + '\n' + currentChunk.trim(),
+        metadata: doc.metadata
+      }));
+      currentChunk = '';
+    };
+
+    for (const line of lines) {
+      const headerMatch = line.match(/^(#{1,6})\s+(.*)$/);
+
+      if (headerMatch) {
+        // Se encontrar um header, fecha o chunk atual
+        flushChunk();
+        currentHeader = line;
+      } else {
+        currentChunk += line + '\n';
+        if (currentChunk.length >= chunkSize) {
+          flushChunk();
+        }
+      }
+    }
+    // Flush do último chunk restante
+    flushChunk();
+  }
+
+  // Overlap simples entre chunks
+  const overlappedChunks: Document[] = [];
+  for (let i = 0; i < newDocs.length; i++) {
+    const current = newDocs[i];
+    const prev = newDocs[i - 1];
+    if (prev) {
+      const overlapContent = prev.pageContent.slice(-chunkOverlap) + current?.pageContent;
+      overlappedChunks.push(new Document({
+        pageContent: overlapContent,
+        metadata: current?.metadata,
+      }));
+    } else {
+      if(current === undefined) continue;
+      overlappedChunks.push(current);
+    }
+  }
+
+  return overlappedChunks;
+}
 
 export function cleanDocsMetadata(docs: Document[]) {
   return docs.map((doc) => {
@@ -55,8 +110,7 @@ export async function initVectorStore() {
 
         const rawDocs = await loader.load();
         
-        const splitter = new RecursiveCharacterTextSplitter({ chunkSize: 500, chunkOverlap: 100 });
-        const docs = await splitter.splitDocuments(rawDocs);
+        const docs = await markdownHeaderSplitter(rawDocs, 1000, 150);
         const cleanDocs = cleanDocsMetadata(docs);
         const ids = cleanDocs.map((_doc: Document, index: number) => (index + 1).toString());
         await vectorStore.delete({ filter: { id: { $ne: "0" } } }); // Deleta os documentos existentes, se houver

@@ -7,10 +7,20 @@ import { llm } from '../llm/mistral'
 
 let ragChainInstance: any = null;
 
+const promptTemplate = `
+Contexto:
+{context}
+
+Pergunta:
+{input}
+
+Baseando-se estritamente no contexto acima, responda de maneira direta e objetiva.
+Se a resposta não estiver no contexto, diga: "Informação não encontrada no contexto".
+`;
 export async function getRAGChain() {
   if(!ragChainInstance){
 
-    const prompt = ChatPromptTemplate.fromTemplate(`Você é um assistente da Algo Mais Camisaria. Responda a pergunta do usuário de forma objetiva, usando exclusivamente as informações fornecidas no contexto.\n Mensagem: {input} \n Contexto: {context}`);
+    const prompt = ChatPromptTemplate.fromTemplate(promptTemplate);
     const combineDocsChain = await createStuffDocumentsChain({
       llm,
       prompt,

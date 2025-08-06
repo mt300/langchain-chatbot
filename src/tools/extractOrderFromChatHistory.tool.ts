@@ -5,12 +5,15 @@ import { mountOrderPrompt } from "../prompts/mountOrder.prompt";
 
 export const extractOrderFromChatHistoryTool = new DynamicStructuredTool({
   name: "extract_order_from_history",
-  description: "Extrai pedidos de orçamento a partir do histórico de mensagens do cliente.",
+  description: "Tenta extrair as informações necessárias para montar um orçamento",
   schema: z.object({
-    chat_history: z.array(z.string())
+    chat_history: z.array(z.string()),
+    context: z.string().describe('Trechos da base de conhecimento da empresa relevantes para montar o pedido')
+    
   }),
-  func: async ({ chat_history }) => {
-    const prompt = mountOrderPrompt(chat_history.join('\n'));
+  func: async ({chat_history, context }) => {
+    // console.log(id, name)
+    const prompt = mountOrderPrompt({chat_history,context});
     const response = await llm.invoke(prompt);
     return response; // Você pode parsear se quiser
   }
