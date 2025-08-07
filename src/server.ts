@@ -1,8 +1,8 @@
 //server.ts
 // import { createAgent } from './agents/routing.agent';
-import { llmWithTools as ollamaAgent } from './agents/ollamaRouting.agent'
-
-import { initVectorStore, queryVectorStore } from './vector/vectorStore'
+// import { createAgent } from './agents/ollamaRouting.agent'
+import { composedChain } from './chains/detectIntent.chain'
+// import { initVectorStore, queryVectorStore } from './vector/vectorStore'
 // import { HumanMessage, AIMessage } from '@langchain/core/messages';
 // import { getRAGChain } from './chains/RAG.chain';
 // import { tools } from './tools/index.tools'
@@ -10,60 +10,44 @@ import { initVectorStore, queryVectorStore } from './vector/vectorStore'
 // import { ChatOllama } from "@langchain/ollama";
 // import { z } from "zod";
 
-async function main() {
+async function main(lastMessage:string) {
     try {
-
-        
-        await initVectorStore();
-        // const agent = await createAgent();
-        // console.log('Agent', agent)
-        // console.log('Tools', agent.tools.map((t:any) => t.name))
-        
-        
-        const knowledgeSnippet = await queryVectorStore( `Quero fazer um orçamento de 10 camisas com a minha logo`);
-        console.log('Knowledge Snippet', knowledgeSnippet)
-        const agentPrompt = (input:string, knowledge:string) => `
-            Base de conhecimento:\n 
-            ${knowledge}\n
-            User Input: ${input}
-        `
-        // With chat history
-        // const result = await agent.invoke({
-        //     input: agentPrompt("As malhas eu não conheco nem sei o que é silk e sublimação.", knowledgeSnippet.map( (k:any) => k.content).join('\n')),
-        //     chat_history: [
-        //         new HumanMessage("Olá, tudo bem?"),
-        //         new AIMessage("Bem vindo a Algo Mais, em que posso ajudar?"),
-        //         new HumanMessage("Quanto custa 4 camisas com logo da minha empresa?"),
-        //         new AIMessage(`Para te passar um orçamento, preciso saber alguns detalhes adicionais:
-        //             - Qual é o tipo de impressão que você gostaria (sublimação, silk)?
-        //             - Você já tem a arte pronta ou precisa de ajuda para criar?
-        //             - Qual é o tipo de tecido ou malha que você prefere?
-
-        //             Com essas informações, posso te fornecer um orçamento mais preciso!`),
-        //     ],
-        // });
-        // const response = result.output;
-        const response = await ollamaAgent.invoke(agentPrompt('Quero fazer um orçamento de 10 camisas com a minha logo', knowledgeSnippet.map( (k:any) => k.content).join('\n')))
+        const response = await composedChain.invoke({topico:lastMessage})
         console.log('Response', response)
-        // const toolMatch = response.match(/(extractOrderFromChatHistoryTool|sendToHumanTool|RAGTool)/);
-        // console.log('Tool', toolMatch)
-        // console.log('Tool', agent.tools.find((t:any) => response.includes(t.name)))
+        // await initVectorStore();
+        
+        // const knowledgeSnippet = await queryVectorStore( lastMessage);
+        // const attendanceScript = knowledgeSnippet.filter( (ks: {similarity: string; content: string; metadata: Record<string, any>;}) => ks.metadata.source.includes('script') )
+        // const productsServices = knowledgeSnippet.filter( (ks: {similarity: string; content: string; metadata: Record<string, any>;}) => ks.metadata.source.includes('produtos') )
 
-        // console.log('Tools Matcheds',toolMatch)
-        // if (toolMatch) {
-        //     const toolName = toolMatch[1];
-        //     const jsonMatch = response.match(/{.*}/s); // captura JSON params
-        //     const params = jsonMatch ? JSON.parse(jsonMatch[0]) : {};
+        // console.log('ATENDIMENTO Knowledge Snippet', attendanceScript)
+        // console.log('PRODUTOS Knowledge Snippet', productsServices)
 
-        //     const tool = tools.find(t => t.name === toolName);
-        //     if (tool) {
-        //         const toolResponse = await tool.func(params);
-        //         console.log("Resposta da Tool:", toolResponse);
-        //     }
-        // }
+        // // const agentPrompt = (input:string, knowledge:string) => `
+        // //     Base de conhecimento:\n 
+        // //     ${knowledge}\n
+        // //     User Input: ${input}
+        // // `
+        // const chatHistory = [
+        //     new HumanMessage("Olá, tudo bem?"),
+        //     new AIMessage("Bem vindo a Algo Mais, em que posso ajudar?"),
+        //     new HumanMessage(lastMessage),
+        // ];
+        // // console.log('chat history', chatHistory)
+        // const historyAsText = chatHistory.map( msg => 
+        //     msg._getType() === 'human'
+        //         ? ["Usuário", msg.content as string]
+        //         : ["Assistant", msg.content as string]
+        // );
+        // const agent = await createAgent(historyAsText, attendanceScript.map(a => a.content).join('\n'), productsServices.map(a => a.content).join('\n'))
+        // console.log('Agent', agent)
+        
+        // const response = await agent
+        // console.log('Response', response)
+        
     } catch (error) {
         console.error("Error running main store:", error);
     }
 }
 
-main().catch((error) => console.error("Error in main:", error));
+main('Capitalismo vs comunismo').catch((error) => console.error("Error in main:", error));

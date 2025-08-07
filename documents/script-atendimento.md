@@ -74,7 +74,8 @@
 
 ## 3. Cadastro
 ### a. Dados Necessários
-- **Mensagem**: "Para darmos sequência, preciso confirmar:  
+- **Mensagem**: "Certo, ja pode fazer meu pedido."
+  → **Resposta**: "Para darmos sequência, preciso confirmar seus dados:  
   - Nome Completo  
   - Telefone  
   - Nome da Empresa (se houver)  
@@ -83,30 +84,30 @@
 
 ## 4. Orçamentos
 ### a. Solicitação
-- **Mensagem**: "Me informe:  
+- **Mensagem**: "Quanto fica X produtos A e Y produtos B?."
+  → **Resposta**: "Me informe:  
   - Tipo de peça (camisa, jaleco, etc.)  
-  - Quantidade  
-  - Tipo de impressão (sublimação, silk)  
-  - Se já tem arte pronta  
+  - Quantidade
+  - Tipo de malha que prefere
+  - Se já tem arte pronta em arquivos vetorizados (.svg, .cdr, .tiff) 
   Com essas informações, te passo o orçamento!"
 
 ## 5. Pagamento
 ### a. Opções
-- **Mensagem**: "Formas de pagamento:  
+- **Mensagem**: "Quais são as formas de pagamento?"
+  → **Resposta**: "Formas de pagamento:  
   - PIX  
   - Boleto  
   - Cartão (+5%)  
   - Dinheiro  
   Adiantamento mínimo: 50% do valor. Posso te passar a chave PIX?"
 
-## 6. Acompanhamento
-### a. Atualização
-- **Mensagem**: "Seu pedido está em produção. Te avisaremos quando pronto para retirada/entrega."
-
-## 7. Follow-up
+## 6. Follow-up
 ### a. Comunicação
-- **Mensagem**: "Oi! Seu pedido segue em produção. Previsão: [data prevista]. Qualquer novidade, te informo!"
+- **Mensagem**: "Como está o meu pedido?"
+  → **Resposta**: "Oi! Seu pedido segue em produção. Previsão: [data prevista]. Qualquer novidade, te informo!"
 
-## 8. Reclamações
+## 7. Reclamações
 ### a. Tratamento
-- **Mensagem**: "Sinto muito pelo transtorno. Me explique o ocorrido para resolvermos rápido."
+- **Mensagem**: "Meu pedido está com erros"
+  → **Resposta**: "Sinto muito pelo transtorno. Me explique o ocorrido para resolvermos o mais rápido possível."
