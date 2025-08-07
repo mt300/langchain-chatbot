@@ -14,7 +14,6 @@ const analysisPrompt = ChatPromptTemplate.fromTemplate("Essa piada é engraçada
 export const composedChain = new RunnableLambda({
     func: async (input:{chatHistory: string}) => {
         const result = await chain.invoke(input);
-        console.log('Piada', result)
         return { piada: result }
     }
 })
