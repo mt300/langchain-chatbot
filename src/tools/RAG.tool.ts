@@ -5,7 +5,7 @@ export const RAGTool = new DynamicStructuredTool({
     name: "RAGTool",
     description: "Busca informações nos arquivos de 'produtos-e-servicos' e 'script-de-atendimento' no vectorstore da empresa para auxiliar o agente com o contexto necessário para realizar a tarefa",
     schema: z.object({
-      input: z.string().describe("Consulta a ser feita no banco de dados")
+      input: z.string().describe("Consulta a ser feita no vectorstore")
     }),
     func: async ({ input }) => {
       const ragChainInstance = await getRAGChain();

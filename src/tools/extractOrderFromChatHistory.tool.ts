@@ -12,7 +12,7 @@ export const extractOrderFromChatHistoryTool = new DynamicStructuredTool({
     
   }),
   func: async ({chat_history, context }) => {
-    // console.log(id, name)
+    console.log('Chamada da função de orçamento')
     const prompt = mountOrderPrompt({chat_history,context});
     const response = await llm.invoke(prompt);
     return response; // Você pode parsear se quiser

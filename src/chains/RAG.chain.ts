@@ -11,7 +11,7 @@ const promptTemplate = `
 Contexto:
 {context}
 
-Pergunta:
+Entrada:
 {input}
 
 Baseando-se estritamente no contexto acima, responda de maneira direta e objetiva.
