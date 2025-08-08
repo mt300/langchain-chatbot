@@ -2,9 +2,9 @@
 
 ## 1. Itens Disponíveis
 - **Camisas**:  
-  - Gola O, V, Polo, Raglan, Regata
+  - Tradicional, Polo, BabyLook e Regata
 - **Camisa Social**:  
-  - Manga Curta/Longa/3/4
+  - Manga Curta, Manga Longa e Manga 3/4
 - **Outros**:  
   - Shorts e calças  
   - Macacões  
@@ -18,8 +18,15 @@
     - Cozinha/restaurantes  
     - Corporativos  
     - EPI’s  
-
-## 2. Especificações Técnicas
+## 2. Personalizados adicionais
+- **Camisas**:
+  - Gola V
+  - Manga Raglan
+  - Manga Longa
+  - Punhos
+  - Bolso
+  - Nome ou Número nas costas
+## 3. Especificações Técnicas
 ### a. Sublimação
 - **Pedido mínimo**: 5 unidades
 - **Malhas compatíveis**:  
@@ -48,7 +55,7 @@
   | Piquet poliéster | 5 peças |  
   | Malha PP         | 5 peças |  
 
-## 3. Criação de Arte
+## 4. Criação de Arte
 ### a. Quando é necessário
 - Cliente não possui arte em formatos vetoriais (.svg, .cdr, .tiff)
 
@@ -62,17 +69,17 @@
 2. Cliente aprova por escrito (WhatsApp)
 3. Pedido encaminhado para produção
 
-## 4. Prazos
+## 5. Prazos
 - **Entrega padrão**: 8-10 dias úteis
 - **Variações**: Períodos de alta demanda
 
-## 5. Logística
+## 6. Logística
 - **Retirada**: Na loja
 - **Entrega**:  
   - Motoboy/táxi (Aracaju/SE)  
   - Custo por conta do cliente  
 
-## 6. Fluxo de Compra
+## 7. Fluxo de Compra
 1. Orçamento
 2. Cadastro/confirmação de dados
 3. Pagamento (≥50% adiantamento)
@@ -80,6 +87,6 @@
 5. Produção
 6. Retirada (pagamento do saldo restante)
 
-## 7. Horário de Funcionamento
+## 8. Horário de Funcionamento
 - **Segunda**: 8h às 17h
 - **Terça a Sexta**: 8h às 18h
