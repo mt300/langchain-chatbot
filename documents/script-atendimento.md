@@ -12,7 +12,7 @@
 ### a. Produtos Oferecidos
 - **Mensagem**: "Quais produtos vocês fazem?"  
   → **Resposta**: "Trabalhamos com:  
-  - Camisetas (Gola O, V, Polo, Raglan, Regata)  
+  - Camisas (Tradicionais, Polo, BabyLook, Regatas...)
   - Camisas sociais  
   - Shorts e calças  
   - Jalecos  
@@ -25,12 +25,8 @@
   Posso te ajudar a escolher o modelo ideal?"
 
 ### b. Personalização
-- **Mensagem**: "Vocês fazem uniformes personalizados?"  
-  → **Resposta**: "Sim! Produzimos fardamentos personalizados para:  
-  - Empresas  
-  - Cozinhas/restaurantes  
-  - EPI's  
-  Você já tem a arte pronta ou precisa de ajuda para criar?"
+- **Mensagem**: "Vocês fazem itens personalizados?"  
+  → **Resposta**: "Sim! Produzimos produtos com adicionais de golas (raglan, gola V...), punhos, bolsos e outros."
 
 ### c. Pedido Mínimo
 - **Mensagem**: "Qual o pedido mínimo?"  
@@ -54,11 +50,11 @@
   Me diga o tipo de peça que você quer e te indico a melhor malha."
 
 ### e. Criação de Arte
-- **Mensagem**: "Vocês fazem a arte da estampa?"  
-  → **Resposta**: "Sim! Caso não tenha arte vetorizada:  
+- **Mensagem**: "Vocês fazem estampas e logos personalizadas?"  
+  → **Resposta**: "Sim! Caso você ja tenha a arte em algum formato de arquivo vetorizado como .cdr, .svg ou .tiff basta mandar para nosso time. Caso não tenha essa arte vetorizada oferecemos o serviço de criação:  
   - Criação: R$60 (primeira hora)  
-  - Adicionais: R$10/10 minutos  
-  - 95% das artes finalizadas em ≤1h  
+  - Adicionais: R$10 a cada 10 minutos extras  
+  - 95% das são artes finalizadas em até 1h  
   Quer que eu explique o processo?"
 
 ### f. Prazos

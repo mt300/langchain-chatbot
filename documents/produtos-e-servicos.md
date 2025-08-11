@@ -2,7 +2,7 @@
 
 ## 1. Itens Disponíveis
 - **Camisas**:  
-  - Tradicional, Polo, BabyLook e Regata
+  - Camisa tradicional, Polo, BabyLook e Regata
 - **Camisa Social**:  
   - Manga Curta, Manga Longa e Manga 3/4
 - **Outros**:  
@@ -37,7 +37,7 @@
   - Sport Soft  
   - Active Ice (UV)  
   - Crepe  
-  - Roth Dr  
+  - Roth Dry  
   - Barcelona  
 
 ### b. Silk

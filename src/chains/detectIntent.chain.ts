@@ -7,6 +7,8 @@ import { llm } from '../llm/llama3';
 import { queryVectorStore } from '../vector/vectorStore';
 import { extractOrderFromChatHistoryTool } from '../tools/extractOrderFromChatHistory.tool';
 
+
+
 const prompt = ChatPromptTemplate.fromTemplate(detectIntent);
 class IntentEnumParser extends BaseOutputParser<string> {
   static override lc_name() {

@@ -6,7 +6,7 @@ import { DirectoryLoader } from "langchain/document_loaders/fs/directory";
 import { Document } from "langchain/document";
 import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { TextLoader as MarkdownLoader } from "langchain/document_loaders/fs/text"; // o mesmo loader pode ser usado para .md
-
+import fs from 'fs'
 
 
 export const embeddings = new HuggingFaceTransformersEmbeddings({
@@ -23,60 +23,66 @@ export const vectorStore = new Chroma(embeddings, {
   collectionName: "a-test-collection-v2",
 });
 
-export async function markdownHeaderSplitter(rawDocs: Document[], chunkSize = 1000, chunkOverlap = 100) {
+export async function markdownHeaderSplitter(rawDocs: Document[]) {
   const newDocs: Document[] = [];
 
   for (const doc of rawDocs) {
-    const lines = doc.pageContent.split('\n');
-    let currentHeader = '';
-    let currentChunk = '';
+    const lines = doc.pageContent.replace(/\r\n/g, "\n").split("\n");
+
+    let currentH1 = "";
+    let currentH2 = "";
+    let currentH3 = "";
+    let currentChunk = "";
 
     const flushChunk = () => {
-      if (currentChunk.trim() === '') return;
+      if (currentChunk.trim() === "") return;
       newDocs.push(new Document({
-        pageContent: currentHeader + '\n' + currentChunk.trim(),
-        metadata: doc.metadata
+        pageContent: currentChunk.trim(),
+        metadata: {
+          ...doc.metadata,
+          h1: currentH1 || null,
+          h2: currentH2 || null,
+          h3: currentH3 || null
+        }
       }));
-      currentChunk = '';
+      currentChunk = "";
     };
 
     for (const line of lines) {
-      const headerMatch = line.match(/^(#{1,6})\s+(.*)$/);
+      const match = line.match(/^\s*(#{1,3})\s+(.*)$/); // detecta # até ###
 
-      if (headerMatch) {
-        // Se encontrar um header, fecha o chunk atual
+      if (match) {
+        // Antes de mudar de header, salva o chunk anterior
         flushChunk();
-        currentHeader = line;
-      } else {
-        currentChunk += line + '\n';
-        if (currentChunk.length >= chunkSize) {
-          flushChunk();
+
+        const level = match[1]?.length ?? 0;
+        const text = match[2]?.trim() ?? '';
+
+        if (level === 1) {
+          currentH1 = text;
+          currentH2 = "";
+          currentH3 = "";
+        } else if (level === 2) {
+          currentH2 = text;
+          currentH3 = "";
+        } else if (level === 3) {
+          currentH3 = text;
         }
+
+        // O novo chunk já começa com o header encontrado
+        currentChunk = line + "\n";
+
+      } else {
+        currentChunk += line + "\n";
       }
     }
-    // Flush do último chunk restante
+
     flushChunk();
   }
 
-  // Overlap simples entre chunks
-  const overlappedChunks: Document[] = [];
-  for (let i = 0; i < newDocs.length; i++) {
-    const current = newDocs[i];
-    const prev = newDocs[i - 1];
-    if (prev) {
-      const overlapContent = prev.pageContent.slice(-chunkOverlap) + current?.pageContent;
-      overlappedChunks.push(new Document({
-        pageContent: overlapContent,
-        metadata: current?.metadata,
-      }));
-    } else {
-      if(current === undefined) continue;
-      overlappedChunks.push(current);
-    }
-  }
-
-  return overlappedChunks;
+  return newDocs;
 }
+
 
 export function cleanDocsMetadata(docs: Document[]) {
   return docs.map((doc) => {
@@ -110,9 +116,18 @@ export async function initVectorStore() {
 
         const rawDocs = await loader.load();
         
-        const docs = await markdownHeaderSplitter(rawDocs, 1000, 150);
+        const docs = await markdownHeaderSplitter(rawDocs);
         const cleanDocs = cleanDocsMetadata(docs);
         const ids = cleanDocs.map((_doc: Document, index: number) => (index + 1).toString());
+        // salvar embeddings + docs em json
+        const dump = cleanDocs.map((doc, i) => ({
+          id: ids[i],
+          content: doc.pageContent,
+          metadata: doc.metadata,
+        }));
+        console.log('Ola')
+        fs.writeFileSync("embeddings_dump.json", JSON.stringify(dump, null, 2));
+
         await vectorStore.delete({ filter: { id: { $ne: "0" } } }); // Deleta os documentos existentes, se houver
         await vectorStore.addDocuments(cleanDocs, { ids });
         console.log('Vector store initialized.');
