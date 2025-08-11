@@ -26,11 +26,9 @@
   - Punhos
   - Bolso
   - Nome ou Número nas costas
-## 3. Especificações Técnicas
-### a. Sublimação
-- **Pedido mínimo**: 5 unidades
-- **Malhas compatíveis**:  
-  - PP  
+## 3. Malhas Disponíveis
+### a. Malhas
+  - Malha PP  
   - Liso opaco  
   - Cacharrel (100% poliéster)  
   - Dry Tech  
@@ -39,21 +37,10 @@
   - Crepe  
   - Roth Dry  
   - Barcelona  
-
-### b. Silk
-- **Pedido mínimo**: 20 unidades
-- **Custo da arte**: Varia com número de cores
-- **Malhas compatíveis**:  
   - FIO 30 (Algodão)  
-  - PV  
-
-### c. Camisas Polo
-- **Pedido mínimo por malha**:  
-  | Malha            | Mínimo |  
-  |------------------|--------|  
-  | Piquet mista     | 10 peças |  
-  | Piquet poliéster | 5 peças |  
-  | Malha PP         | 5 peças |  
+  - Malha PV  
+  - Piquet Mista
+  - Piquet Poliester
 
 ## 4. Criação de Arte
 ### a. Quando é necessário

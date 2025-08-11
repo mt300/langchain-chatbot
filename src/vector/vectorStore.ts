@@ -7,6 +7,7 @@ import { Document } from "langchain/document";
 import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { TextLoader as MarkdownLoader } from "langchain/document_loaders/fs/text"; // o mesmo loader pode ser usado para .md
 import fs from 'fs'
+import { Where } from "chromadb";
 
 
 export const embeddings = new HuggingFaceTransformersEmbeddings({
@@ -106,6 +107,29 @@ export function cleanDocsMetadata(docs: Document[]) {
     };
   });
 }
+
+function isHeaderOnlyChunk(text: string): boolean {
+  // remove espaços e quebras de linha
+  const cleaned = text.trim();
+
+  // Regex para detectar se é apenas um ou mais headers markdown, sem conteúdo além disso
+  // Exemplo: "## 3. Malhas Disponíveis" (header), ou "### Outro Header"
+  // Considera que não tem texto além do header
+  const headerOnlyRegex = /^#{1,6}\s.*$/;
+
+  // Se tem só um header e nada mais
+  if (headerOnlyRegex.test(cleaned)) {
+    return true;
+  }
+
+  // Ou se o texto é muito curto (exemplo, menos que 30 chars)
+  if (cleaned.length < 30) {
+    return true;
+  }
+
+  return false;
+}
+
 // Isso aqui inicia o database vector store
 export async function initVectorStore() {
     try {
@@ -118,18 +142,21 @@ export async function initVectorStore() {
         
         const docs = await markdownHeaderSplitter(rawDocs);
         const cleanDocs = cleanDocsMetadata(docs);
-        const ids = cleanDocs.map((_doc: Document, index: number) => (index + 1).toString());
+        
+        const filteredDocs = cleanDocs.filter( doc => !isHeaderOnlyChunk(doc.pageContent));
+
+        const ids = filteredDocs.map((_doc: Document, index: number) => (index + 1).toString());
         // salvar embeddings + docs em json
-        const dump = cleanDocs.map((doc, i) => ({
+        const dump = filteredDocs.map((doc, i) => ({
           id: ids[i],
           content: doc.pageContent,
           metadata: doc.metadata,
         }));
-        console.log('Ola')
+        // console.log('Ola')
         fs.writeFileSync("embeddings_dump.json", JSON.stringify(dump, null, 2));
 
         await vectorStore.delete({ filter: { id: { $ne: "0" } } }); // Deleta os documentos existentes, se houver
-        await vectorStore.addDocuments(cleanDocs, { ids });
+        await vectorStore.addDocuments(filteredDocs, { ids });
         console.log('Vector store initialized.');
 
     } catch (error) {
@@ -137,12 +164,12 @@ export async function initVectorStore() {
     }
 }
 
-export async function queryVectorStore(query: string, k: number = 4) {
+export async function queryVectorStore(query: string, k: number = 4, filter?: Where | undefined) {
     try {
         const queryEmbedding = await embeddings.embedQuery(query);
         
         // @ts-expect-error - ignorar erro de tipo propositalmente
-        const results = await vectorStore.similaritySearchVectorWithScore([queryEmbedding], k);
+        const results = await vectorStore.similaritySearchVectorWithScore([queryEmbedding], k, filter);
         const result = []
         for (const [doc, score] of results) {
             result.push({

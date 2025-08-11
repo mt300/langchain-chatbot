@@ -1,16 +1,6 @@
 [
   {
     "id": "1",
-    "content": "# Produtos e Serviços",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
-      "h1": "Produtos e Serviços",
-      "h2": null,
-      "h3": null
-    }
-  },
-  {
-    "id": "2",
     "content": "## 1. Itens Disponíveis\n- **Camisas**:  \n  - Camisa tradicional, Polo, BabyLook e Regata\n- **Camisa Social**:  \n  - Manga Curta, Manga Longa e Manga 3/4\n- **Outros**:  \n  - Shorts e calças  \n  - Macacões  \n  - Jalecos  \n  - Bonés  \n  - Bolsas/ecobags  \n  - Fita com presilha para crachá  \n  - Bandeiras/banners/windbanners  \n  - Enxoval hospitalar  \n  - Fardamentos:  \n    - Cozinha/restaurantes  \n    - Corporativos  \n    - EPI’s",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
@@ -20,7 +10,7 @@
     }
   },
   {
-    "id": "3",
+    "id": "2",
     "content": "## 2. Personalizados adicionais\n- **Camisas**:\n  - Gola V\n  - Manga Raglan\n  - Manga Longa\n  - Punhos\n  - Bolso\n  - Nome ou Número nas costas",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
@@ -30,57 +20,17 @@
     }
   },
   {
+    "id": "3",
+    "content": "### a. Malhas\n  - Malha PP  \n  - Liso opaco  \n  - Cacharrel (100% poliéster)  \n  - Dry Tech  \n  - Sport Soft  \n  - Active Ice (UV)  \n  - Crepe  \n  - Roth Dry  \n  - Barcelona  \n  - FIO 30 (Algodão)  \n  - Malha PV  \n  - Piquet Mista\n  - Piquet Poliester",
+    "metadata": {
+      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
+      "h1": "Produtos e Serviços",
+      "h2": "3. Malhas Disponíveis",
+      "h3": "a. Malhas"
+    }
+  },
+  {
     "id": "4",
-    "content": "## 3. Especificações Técnicas",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
-      "h1": "Produtos e Serviços",
-      "h2": "3. Especificações Técnicas",
-      "h3": null
-    }
-  },
-  {
-    "id": "5",
-    "content": "### a. Sublimação\n- **Pedido mínimo**: 5 unidades\n- **Malhas compatíveis**:  \n  - PP  \n  - Liso opaco  \n  - Cacharrel (100% poliéster)  \n  - Dry Tech  \n  - Sport Soft  \n  - Active Ice (UV)  \n  - Crepe  \n  - Roth Dry  \n  - Barcelona",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
-      "h1": "Produtos e Serviços",
-      "h2": "3. Especificações Técnicas",
-      "h3": "a. Sublimação"
-    }
-  },
-  {
-    "id": "6",
-    "content": "### b. Silk\n- **Pedido mínimo**: 20 unidades\n- **Custo da arte**: Varia com número de cores\n- **Malhas compatíveis**:  \n  - FIO 30 (Algodão)  \n  - PV",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
-      "h1": "Produtos e Serviços",
-      "h2": "3. Especificações Técnicas",
-      "h3": "b. Silk"
-    }
-  },
-  {
-    "id": "7",
-    "content": "### c. Camisas Polo\n- **Pedido mínimo por malha**:  \n  | Malha            | Mínimo |  \n  |------------------|--------|  \n  | Piquet mista     | 10 peças |  \n  | Piquet poliéster | 5 peças |  \n  | Malha PP         | 5 peças |",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
-      "h1": "Produtos e Serviços",
-      "h2": "3. Especificações Técnicas",
-      "h3": "c. Camisas Polo"
-    }
-  },
-  {
-    "id": "8",
-    "content": "## 4. Criação de Arte",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
-      "h1": "Produtos e Serviços",
-      "h2": "4. Criação de Arte",
-      "h3": null
-    }
-  },
-  {
-    "id": "9",
     "content": "### a. Quando é necessário\n- Cliente não possui arte em formatos vetoriais (.svg, .cdr, .tiff)",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
@@ -90,7 +40,7 @@
     }
   },
   {
-    "id": "10",
+    "id": "5",
     "content": "### b. Custos\n- Primeira hora: R$60\n- Adicionais: R$10/10 minutos\n- **Observação**: 95% das artes finalizadas em ≤1h",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
@@ -100,7 +50,7 @@
     }
   },
   {
-    "id": "11",
+    "id": "6",
     "content": "### c. Fluxo de Aprovação\n1. Designer cria layout\n2. Cliente aprova por escrito (WhatsApp)\n3. Pedido encaminhado para produção",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
@@ -110,7 +60,7 @@
     }
   },
   {
-    "id": "12",
+    "id": "7",
     "content": "## 5. Prazos\n- **Entrega padrão**: 8-10 dias úteis\n- **Variações**: Períodos de alta demanda",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
@@ -120,7 +70,7 @@
     }
   },
   {
-    "id": "13",
+    "id": "8",
     "content": "## 6. Logística\n- **Retirada**: Na loja\n- **Entrega**:  \n  - Motoboy/táxi (Aracaju/SE)  \n  - Custo por conta do cliente",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
@@ -130,7 +80,7 @@
     }
   },
   {
-    "id": "14",
+    "id": "9",
     "content": "## 7. Fluxo de Compra\n1. Orçamento\n2. Cadastro/confirmação de dados\n3. Pagamento (≥50% adiantamento)\n4. Aprovação de layout\n5. Produção\n6. Retirada (pagamento do saldo restante)",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
@@ -140,7 +90,7 @@
     }
   },
   {
-    "id": "15",
+    "id": "10",
     "content": "## 8. Horário de Funcionamento\n- **Segunda**: 8h às 17h\n- **Terça a Sexta**: 8h às 18h",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md",
@@ -150,27 +100,7 @@
     }
   },
   {
-    "id": "16",
-    "content": "# Script de Atendimento",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
-      "h1": "Script de Atendimento",
-      "h2": null,
-      "h3": null
-    }
-  },
-  {
-    "id": "17",
-    "content": "## 1. Boas Vindas e Triagem",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
-      "h1": "Script de Atendimento",
-      "h2": "1. Boas Vindas e Triagem",
-      "h3": null
-    }
-  },
-  {
-    "id": "18",
+    "id": "11",
     "content": "### a. Fluxo de Início\n- **Mensagem**: \"Bom dia.\"  \n  → **Resposta**: \"Bem vindo à Algo Mais Camisarial! Em que posso ajudar?\"\n\n- **Mensagem**: \"Olá, vim pelo site, tenho interesse em adquirir os produtos da Algo Mais\"  \n  → **Resposta**: \"Bem vindo à Algo Mais Camisarial! Que tipo de produto você está procurando?\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
@@ -180,17 +110,7 @@
     }
   },
   {
-    "id": "19",
-    "content": "## 2. Dúvidas Frequentes",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
-      "h1": "Script de Atendimento",
-      "h2": "2. Dúvidas Frequentes",
-      "h3": null
-    }
-  },
-  {
-    "id": "20",
+    "id": "12",
     "content": "### a. Produtos Oferecidos\n- **Mensagem**: \"Quais produtos vocês fazem?\"  \n  → **Resposta**: \"Trabalhamos com:  \n  - Camisas (Tradicionais, Polo, BabyLook, Regatas...)\n  - Camisas sociais  \n  - Shorts e calças  \n  - Jalecos  \n  - Bonés  \n  - Ecobags  \n  - Crachás  \n  - Bandeiras  \n  - Enxoval hospitalar  \n  - Fardamentos  \n  Posso te ajudar a escolher o modelo ideal?\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
@@ -200,7 +120,7 @@
     }
   },
   {
-    "id": "21",
+    "id": "13",
     "content": "### b. Personalização\n- **Mensagem**: \"Vocês fazem itens personalizados?\"  \n  → **Resposta**: \"Sim! Produzimos produtos com adicionais de golas (raglan, gola V...), punhos, bolsos e outros.\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
@@ -210,7 +130,7 @@
     }
   },
   {
-    "id": "22",
+    "id": "14",
     "content": "### c. Pedido Mínimo\n- **Mensagem**: \"Qual o pedido mínimo?\"  \n  → **Resposta**: \"Depende do tipo de impressão:  \n  | Técnica      | Mínimo |  \n  |--------------|--------|  \n  | Sublimação   | 5 peças |  \n  | Silk         | 20 peças |  \n  | Polo         | 5-10 peças (varia com malha) |  \n  Quer que eu veja qual se encaixa no seu pedido?\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
@@ -220,7 +140,7 @@
     }
   },
   {
-    "id": "23",
+    "id": "15",
     "content": "### d. Tipos de Tecido\n- **Mensagem**: \"Quais tipos de tecido vocês têm?\"  \n  → **Resposta**: \"Opções de malhas:  \n  - PP  \n  - Dry Tech  \n  - Cacharrel  \n  - Active Ice  \n  - Fio 30  \n  - PV  \n  Me diga o tipo de peça que você quer e te indico a melhor malha.\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
@@ -230,7 +150,7 @@
     }
   },
   {
-    "id": "24",
+    "id": "16",
     "content": "### e. Criação de Arte\n- **Mensagem**: \"Vocês fazem estampas e logos personalizadas?\"  \n  → **Resposta**: \"Sim! Caso você ja tenha a arte em algum formato de arquivo vetorizado como .cdr, .svg ou .tiff basta mandar para nosso time. Caso não tenha essa arte vetorizada oferecemos o serviço de criação:  \n  - Criação: R$60 (primeira hora)  \n  - Adicionais: R$10 a cada 10 minutos extras  \n  - 95% das são artes finalizadas em até 1h  \n  Quer que eu explique o processo?\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
@@ -240,7 +160,7 @@
     }
   },
   {
-    "id": "25",
+    "id": "17",
     "content": "### f. Prazos\n- **Mensagem**: \"Qual o prazo de entrega?\"  \n  → **Resposta**: \"Padrão: 8-10 dias úteis. Posso verificar a previsão exata para seu pedido?\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
@@ -250,7 +170,7 @@
     }
   },
   {
-    "id": "26",
+    "id": "18",
     "content": "### g. Entrega\n- **Mensagem**: \"Vocês entregam ou preciso retirar?\"  \n  → **Resposta**: \"Opções:  \n  1. Retirada na loja  \n  2. Entrega por motoboy/táxi (Aracaju/SE)  \n  Custo do frete: por conta do cliente. Quer estimativa de valor?\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
@@ -260,17 +180,7 @@
     }
   },
   {
-    "id": "27",
-    "content": "## 3. Cadastro",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
-      "h1": "Script de Atendimento",
-      "h2": "3. Cadastro",
-      "h3": null
-    }
-  },
-  {
-    "id": "28",
+    "id": "19",
     "content": "### a. Dados Necessários\n- **Mensagem**: \"Certo, ja pode fazer meu pedido.\"\n  → **Resposta**: \"Para darmos sequência, preciso confirmar seus dados:  \n  - Nome Completo  \n  - Telefone  \n  - Nome da Empresa (se houver)  \n  - CPF/CNPJ  \n  Tudo certo? 😊\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
@@ -280,17 +190,7 @@
     }
   },
   {
-    "id": "29",
-    "content": "## 4. Orçamentos",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
-      "h1": "Script de Atendimento",
-      "h2": "4. Orçamentos",
-      "h3": null
-    }
-  },
-  {
-    "id": "30",
+    "id": "20",
     "content": "### a. Solicitação\n- **Mensagem**: \"Quanto fica X produtos A e Y produtos B?.\"\n  → **Resposta**: \"Me informe:  \n  - Tipo de peça (camisa, jaleco, etc.)  \n  - Quantidade\n  - Tipo de malha que prefere\n  - Se já tem arte pronta em arquivos vetorizados (.svg, .cdr, .tiff) \n  Com essas informações, te passo o orçamento!\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
@@ -300,17 +200,7 @@
     }
   },
   {
-    "id": "31",
-    "content": "## 5. Pagamento",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
-      "h1": "Script de Atendimento",
-      "h2": "5. Pagamento",
-      "h3": null
-    }
-  },
-  {
-    "id": "32",
+    "id": "21",
     "content": "### a. Opções\n- **Mensagem**: \"Quais são as formas de pagamento?\"\n  → **Resposta**: \"Formas de pagamento:  \n  - PIX  \n  - Boleto  \n  - Cartão (+5%)  \n  - Dinheiro  \n  Adiantamento mínimo: 50% do valor. Posso te passar a chave PIX?\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
@@ -320,17 +210,7 @@
     }
   },
   {
-    "id": "33",
-    "content": "## 6. Follow-up",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
-      "h1": "Script de Atendimento",
-      "h2": "6. Follow-up",
-      "h3": null
-    }
-  },
-  {
-    "id": "34",
+    "id": "22",
     "content": "### a. Comunicação\n- **Mensagem**: \"Como está o meu pedido?\"\n  → **Resposta**: \"Oi! Seu pedido segue em produção. Previsão: [data prevista]. Qualquer novidade, te informo!\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
@@ -340,17 +220,7 @@
     }
   },
   {
-    "id": "35",
-    "content": "## 7. Reclamações",
-    "metadata": {
-      "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
-      "h1": "Script de Atendimento",
-      "h2": "7. Reclamações",
-      "h3": null
-    }
-  },
-  {
-    "id": "36",
+    "id": "23",
     "content": "### a. Tratamento\n- **Mensagem**: \"Meu pedido está com erros\"\n  → **Resposta**: \"Sinto muito pelo transtorno. Me explique o ocorrido para resolvermos o mais rápido possível.\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
