@@ -9,7 +9,20 @@ import { extractOrderFromChatHistoryTool } from '../tools/extractOrderFromChatHi
 import { answerCustomerQuestionTool } from '../tools/answerQuestions.tool';
 
 
-
+const handleError = {
+    invoke: () => console.log('Erro do handleErro')
+}
+const getLastUserMessage = (chatHistory: string) => {
+    // Extrair a última mensagem do usuário
+    const lines = chatHistory.split('\n');
+    // Filtra as linhas que começam com 'user:'
+    const userMessages = lines.filter(line => line.trim().toLowerCase().startsWith('user:'));
+    // Pega a última mensagem do usuário e remove o prefixo
+    const lastUserMessage = userMessages.length > 0 
+        ? userMessages?.[userMessages?.length - 1]?.replace(/^user:\s*/i, '').trim() 
+        : '';
+    return lastUserMessage
+}
 const prompt = ChatPromptTemplate.fromTemplate(detectIntent);
 class IntentEnumParser extends BaseOutputParser<string> {
   static override lc_name() {
@@ -56,9 +69,8 @@ const routingLambda = new RunnableLambda({
         intent: string,
         snippets: string
     }) => {
-        const { intent, chatHistory, snippets } = input;
-        // console.log('ChatHistory', chatHistory);
-        console.log('Context Length', snippets.length);
+        const { intent, chatHistory} = input; //{ intent, chatHistory, snippets }
+        
         switch ( intent.toLowerCase()){
             case 'orçamento':
 
@@ -68,11 +80,20 @@ const routingLambda = new RunnableLambda({
                     action: extractOrderFromChatHistoryTool
                 };
             case 'dúvidas':
-                const updatedContext = await queryVectorStore(chatHistory, 4, { 
-                    source: "D:\\Documents\\Programs\\langchain-chatbot\\documents\\produtos-e-servicos.md"
-                })
+                const lastUserMessage = getLastUserMessage(chatHistory)??''
+                if(lastUserMessage === '') {
+                    return { 
+                        intent,
+                        chatHistory,
+                        snippets: '',
+                        route: 'error',
+                        action: handleError,
+                        error: 'Ultima mensagem não encontrada. Query ao vectorstore nao pode ser vazia'
+                    }; 
+                }
+                const updatedContext = await queryVectorStore(lastUserMessage, 3)
                 const parsedContext = updatedContext.map( c => c.content).join('\n')
-                console.log('Updated Context', parsedContext);
+                // console.log('Updated Context', parsedContext);
                 return { 
                     intent,
                     chatHistory,
@@ -143,19 +164,21 @@ export const composedChain = RunnableSequence.from([
                 return { result };
             }
             if(input.route === 'dúvidas' && input.action) {
-                // Extrair a última mensagem do usuário
-                const lines = input.chatHistory.split('\n');
-                // Filtra as linhas que começam com 'user:'
-                const userMessages = lines.filter(line => line.trim().toLowerCase().startsWith('user:'));
-                // Pega a última mensagem do usuário e remove o prefixo
-                const lastUserMessage = userMessages.length > 0 
-                    ? userMessages?.[userMessages?.length - 1]?.replace(/^user:\s*/i, '').trim() 
-                    : '';
+                
+                const lastUserMessage = getLastUserMessage(input.chatHistory)
                 
                 const result = await input.action.invoke({
                     chat_history: input.chatHistory.split('\n'),
                     context: input.snippets,
                     question: lastUserMessage
+                });
+                return { result };
+            }
+            if(input.route === 'error' && input.action) {
+                
+                const result = await input.action.invoke({
+                    chat_history: input.chatHistory.split('\n'),
+                    context: input.snippets,
                 });
                 return { result };
             }

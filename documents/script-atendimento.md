@@ -11,22 +11,24 @@
 ## 2. Dúvidas Frequentes
 ### a. Produtos Oferecidos
 - **Mensagem**: "Quais produtos vocês fazem?"  
-  → **Resposta**: "Trabalhamos com:  
+  → **Resposta**: "Trabalhamos com os items:  
   - Camisas (Tradicionais, Polo, BabyLook, Regatas...)
   - Camisas sociais  
   - Shorts e calças  
   - Jalecos  
   - Bonés  
-  - Ecobags  
+  - Ecobags/Backbags  
   - Crachás  
   - Bandeiras  
   - Enxoval hospitalar  
-  - Fardamentos  
+  - Fardamentos
+  - Bandeiras
+  - Banners/Windbanners  
   Posso te ajudar a escolher o modelo ideal?"
 
 ### b. Personalização
 - **Mensagem**: "Vocês fazem itens personalizados?"  
-  → **Resposta**: "Sim! Produzimos produtos com adicionais de golas (raglan, gola V...), punhos, bolsos e outros."
+  → **Resposta**: "Sim! Produzimos produtos com adicionais de golas (raglan, gola V...), punhos, bolsos e outros. Além disso oferecemos criação de arte com nosso designer."
 
 ### c. Pedido Mínimo
 - **Mensagem**: "Qual o pedido mínimo?"  
@@ -39,15 +41,25 @@
   Quer que eu veja qual se encaixa no seu pedido?"
 
 ### d. Tipos de Tecido
-- **Mensagem**: "Quais tipos de tecido vocês têm?"  
-  → **Resposta**: "Opções de malhas:  
-  - PP  
+- **Mensagem**: "Quais tipos de malhas/tecido vocês têm?"  
+  → **Resposta**: "Aqui trabalhamos com as seguintes malhas:  
+  - Malha PP  
+  - Liso opaco  
+  - Cacharrel (100% poliéster)  
   - Dry Tech  
-  - Cacharrel  
-  - Active Ice  
-  - Fio 30  
-  - PV  
-  Me diga o tipo de peça que você quer e te indico a melhor malha."
+  - Sport Soft  
+  - Active Ice (UV)  
+  - Crepe
+  - Roth Dry  
+  - Barcelona  
+  - FIO 30 (Algodão)  
+  - Malha PV  
+  - Piquet Mista
+  - Piquet Poliester
+  - Brim
+  - Tactel
+
+  😊 Me diga o tipo de peça que você quer e te indico a melhor malha."
 
 ### e. Criação de Arte
 - **Mensagem**: "Vocês fazem estampas e logos personalizadas?"  

@@ -111,7 +111,7 @@
   },
   {
     "id": "12",
-    "content": "### a. Produtos Oferecidos\n- **Mensagem**: \"Quais produtos vocês fazem?\"  \n  → **Resposta**: \"Trabalhamos com:  \n  - Camisas (Tradicionais, Polo, BabyLook, Regatas...)\n  - Camisas sociais  \n  - Shorts e calças  \n  - Jalecos  \n  - Bonés  \n  - Ecobags  \n  - Crachás  \n  - Bandeiras  \n  - Enxoval hospitalar  \n  - Fardamentos  \n  Posso te ajudar a escolher o modelo ideal?\"",
+    "content": "### a. Produtos Oferecidos\n- **Mensagem**: \"Quais produtos vocês fazem?\"  \n  → **Resposta**: \"Trabalhamos com os items:  \n  - Camisas (Tradicionais, Polo, BabyLook, Regatas...)\n  - Camisas sociais  \n  - Shorts e calças  \n  - Jalecos  \n  - Bonés  \n  - Ecobags/Backbags  \n  - Crachás  \n  - Bandeiras  \n  - Enxoval hospitalar  \n  - Fardamentos\n  - Bandeiras\n  - Banners/Windbanners  \n  Posso te ajudar a escolher o modelo ideal?\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
       "h1": "Script de Atendimento",
@@ -121,7 +121,7 @@
   },
   {
     "id": "13",
-    "content": "### b. Personalização\n- **Mensagem**: \"Vocês fazem itens personalizados?\"  \n  → **Resposta**: \"Sim! Produzimos produtos com adicionais de golas (raglan, gola V...), punhos, bolsos e outros.\"",
+    "content": "### b. Personalização\n- **Mensagem**: \"Vocês fazem itens personalizados?\"  \n  → **Resposta**: \"Sim! Produzimos produtos com adicionais de golas (raglan, gola V...), punhos, bolsos e outros. Além disso oferecemos criação de arte com nosso designer.\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
       "h1": "Script de Atendimento",
@@ -141,7 +141,7 @@
   },
   {
     "id": "15",
-    "content": "### d. Tipos de Tecido\n- **Mensagem**: \"Quais tipos de tecido vocês têm?\"  \n  → **Resposta**: \"Opções de malhas:  \n  - PP  \n  - Dry Tech  \n  - Cacharrel  \n  - Active Ice  \n  - Fio 30  \n  - PV  \n  Me diga o tipo de peça que você quer e te indico a melhor malha.\"",
+    "content": "### d. Tipos de Tecido\n- **Mensagem**: \"Quais tipos de malhas/tecido vocês têm?\"  \n  → **Resposta**: \"Aqui trabalhamos com as seguintes malhas:  \n  - Malha PP  \n  - Liso opaco  \n  - Cacharrel (100% poliéster)  \n  - Dry Tech  \n  - Sport Soft  \n  - Active Ice (UV)  \n  - Crepe\n  - Roth Dry  \n  - Barcelona  \n  - FIO 30 (Algodão)  \n  - Malha PV  \n  - Piquet Mista\n  - Piquet Poliester\n  - Brim\n  - Tactel\n\n  😊 Me diga o tipo de peça que você quer e te indico a melhor malha.\"",
     "metadata": {
       "source": "D:\\Documents\\Programs\\langchain-chatbot\\documents\\script-atendimento.md",
       "h1": "Script de Atendimento",
