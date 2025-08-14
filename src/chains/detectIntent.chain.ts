@@ -117,6 +117,8 @@ const routingLambda = new RunnableLambda({
   }
 });
 
+
+
 // ==== Execução final ====
 const executeRouteLambda = new RunnableLambda({
   func: async (input: {
@@ -155,6 +157,84 @@ const executeRouteLambda = new RunnableLambda({
   }
 });
 
+function formatOrderForCustomer(jsonString: string): string {
+  let items: any[];
+  try {
+    items = JSON.parse(jsonString);
+  } catch (e) {
+    return "⚠️ Não foi possível entender o pedido.";
+  }
+
+  if (!Array.isArray(items) || items.length === 0) {
+    return "📭 Nenhum item encontrado no pedido.";
+  }
+
+  const formatted = items.map((item, index) => {
+    const nome = item.item ?? "[Não Informado]";
+    const quantidade = item.quantidade ?? "[Não Informado]";
+    const malha = item.malha ?? "[Não Informado]";
+    const arte = item.arte ?? "[Não Informado]";
+    const personalizacao = Array.isArray(item.personalizacao) && item.personalizacao.length > 0
+      ? item.personalizacao.join(", ")
+      : "[Não Informado]";
+
+    return `🛍️ *Item ${index + 1}*
+   - Produto: ${nome}
+   - Quantidade: ${quantidade}
+   - Malha: ${malha}
+   - Arte: ${arte}
+   - Personalização: ${personalizacao}`;
+  });
+
+  return `📦 Detalhes do seu pedido:\n\n${formatted.join("\n\n")} \n\n✅ Se algo estiver incorreto, por favor me avise.`;
+}
+const formatUserResponseLambda = new RunnableLambda({
+  func: async (input: {
+    result?: string | object;
+    route?: string;
+    error?: string;
+  }) => {
+    // Caso tenha erro, devolve algo já amigável
+    if (input.error) {
+      return {
+        finalMessage: `Ops! Tivemos um problema: ${input.error}`
+      };
+    }
+
+    // Se for string, usa direto, se for objeto, transforma em texto
+    let rawMessage = typeof input.result === 'string'
+      ? input.result
+      : JSON.stringify(input.result, null, 2);
+
+    // Regras de formatação por rota
+    switch (input.route) {
+      case 'orçamento':
+        const friendlyData = formatOrderForCustomer(rawMessage)
+        rawMessage = `Segue o que encontrei sobre seu orçamento. Verifique se as informações estão corretas, diga o que quer alterar ou confirme para que eu :\n${friendlyData}`;
+        console.log("RAW MESSAGE", rawMessage)
+        break;
+      case 'dúvidas':
+        rawMessage = `Aqui está a resposta para sua dúvida:\n${rawMessage}`;
+        break;
+      case 'reclamação':
+        rawMessage = `Recebemos sua reclamação e vamos encaminhar: ${rawMessage}`;
+        break;
+      case 'falar com humano':
+        rawMessage = rawMessage; // já deve estar pronto
+        break;
+      default:
+        rawMessage = rawMessage || 'Posso te ajudar com mais alguma coisa?';
+        break;
+    }
+
+    // Retorna formato final unificado
+    return {
+      route: input.route,
+      message: rawMessage
+    };
+  }
+});
+
 // ==== Runnable Sequence ====
 export const composedChain = RunnableSequence.from([
   // Detecta intent e última mensagem logo no início
@@ -166,5 +246,6 @@ export const composedChain = RunnableSequence.from([
     }
   }),
   routingLambda,
-  executeRouteLambda
+  executeRouteLambda,
+  formatUserResponseLambda
 ]);
