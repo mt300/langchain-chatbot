@@ -30,9 +30,19 @@ async function main() {
                     chatHistory: chatHistory.join("\n")
                 });
 
+                let resultToStore = response.result;
+                // Verifica se é um objeto/array serializável
+                if (typeof resultToStore === 'object' && resultToStore !== null) {
+                    try {
+                        resultToStore = JSON.stringify(resultToStore);
+                    } catch (err) {
+                        console.error("Erro ao converter resultado para JSON:", err);
+                        // Se der erro na stringificação, mantém como estava
+                    }
+                }
                 // Loga e adiciona a resposta no histórico
-                console.log("🤖 Bot:", response.result);
-                chatHistory.push(`agent: ${response.result}`);
+                console.log("🤖 Bot:", resultToStore);
+                chatHistory.push(`agent: ${resultToStore}`);
 
             } catch (err) {
                 console.error("Erro no chatbot:", err);

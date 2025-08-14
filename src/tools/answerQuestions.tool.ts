@@ -15,7 +15,7 @@ export const answerCustomerQuestionTool = new DynamicStructuredTool({
     console.log("Chamada da função de resposta a perguntas");
 
     const prompt = faqPrompt({chat_history, context, question})
-    console.log('FAQ Prompt Complete', prompt)
+    // console.log('FAQ Prompt Complete', prompt)
     const response = await llm.invoke(prompt);
     return response.content; // Texto simples como resposta
   },
